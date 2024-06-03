@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcfveaf1pt83o"]
+
+[ext_resource type="Script" path="res://scripts/FlyingBoss.cs" id="1_wrx0q"]
+[ext_resource type="Texture2D" uid="uid://cx6aav6to7gih" path="res://assets/flyingboss.png" id="2_kofrh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa7wg"]
+atlas = ExtResource("2_kofrh")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meqgx"]
+atlas = ExtResource("2_kofrh")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xtm1"]
+atlas = ExtResource("2_kofrh")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy2ki"]
+atlas = ExtResource("2_kofrh")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rba0a"]
+atlas = ExtResource("2_kofrh")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcwvi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa7wg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meqgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xtm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy2ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rba0a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwc8u"]
+size = Vector2(48.5, 18.75)
+
+[node name="FlyingBoss" type="Area2D"]
+visible = false
+position = Vector2(257.46, 128)
+scale = Vector2(4, 4)
+script = ExtResource("1_wrx0q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.114998, 0)
+sprite_frames = SubResource("SpriteFrames_mcwvi")
+autoplay = "default"
+frame_progress = 0.935431
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.114998, -8.125)
+shape = SubResource("RectangleShape2D_fwc8u")

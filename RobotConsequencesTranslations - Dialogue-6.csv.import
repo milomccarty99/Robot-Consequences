@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cwf2ofhhaesgs"
+
+[deps]
+
+files=["res://RobotConsequencesTranslations - Dialogue-6.en.translation", "res://RobotConsequencesTranslations - Dialogue-6.ja.translation"]
+
+source_file="res://RobotConsequencesTranslations - Dialogue-6.csv"
+dest_files=["res://RobotConsequencesTranslations - Dialogue-6.en.translation", "res://RobotConsequencesTranslations - Dialogue-6.ja.translation"]
+
+[params]
+
+compress=true
+delimiter=0

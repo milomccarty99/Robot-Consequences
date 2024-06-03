@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdduf245528og"]
+
+[ext_resource type="Script" path="res://scripts/ProjectileSpawner.cs" id="1_m0cxf"]
+[ext_resource type="Texture2D" uid="uid://dxptshdmlwvc7" path="res://assets/projectile.png" id="2_lpha3"]
+[ext_resource type="Script" path="res://scripts/Projectile.cs" id="3_233iw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t38qr"]
+
+[node name="ProjectileSpawner" type="Node2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("1_m0cxf")
+directionSpawn = 90.0
+shotArc = 180.0
+numShots = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_lpha3")
+
+[node name="Projectile" type="Area2D" parent="."]
+visible = false
+script = ExtResource("3_233iw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Projectile"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("CircleShape2D_t38qr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Projectile"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_lpha3")
+
+[node name="Timer" type="Timer" parent="Projectile"]
+wait_time = 15.0
+autostart = true
+
+[node name="Heartbeat" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Projectile/Timer" to="Projectile" method="_on_timer_timeout"]
+[connection signal="timeout" from="Heartbeat" to="." method="_on_heartbeat_timeout"]

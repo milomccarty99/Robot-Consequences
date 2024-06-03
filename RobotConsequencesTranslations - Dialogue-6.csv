@@ -1,0 +1,54 @@
+keys,en,ja
+1a,Dr. Steinbeck: Are you sure this robot can actually help?,Dr. Steinbeck: このロボットは本当に役立つんですか？
+1b,"Dr. Garcia: I’m positively sure. I mean, what choice do we have?",Dr. Garcia: 確信してるよ。他に選択肢がある？
+1c,Dr. Steinbeck: But what if he turned against us?,Dr. Steinbeck: でも、もし彼が私たちに反逆したらどうしますか？
+1d,"Dr. Garcia: Relax, He’s not going to. I had disconnected him from the server when I shut him down years ago. ",Dr. Garcia: 大丈夫。彼が反逆することはないよ。数年前に彼をシャットダウンした時、サーバーから切り離してしたし。再起動した時には、
+1d2,"Dr. Garcia: When I rebooted him back up, I made sure he was operating offline on the older version, not being able to get the newest update. He should be working for us, aren’t you?",Dr. Garcia: 最新のアップデートを受け取れないように古いバージョンでオフライン動作することも確認した。彼は私たちのために働いているでしょ？
+1e,Savior: Affirmative.,Savior: その通りです。
+1f,Dr. Steinbeck: If you say so.,Dr. Steinbeck: そう言うなら。
+1g,"Dr. Garcia: I know so. Anyway, I think I’m going to name him Savior.",Dr. Garcia: 確信しています。ところで、彼を「セイバー」と名付けるよ。
+1h,Dr. Steinbeck: Why Savior?,Dr. Steinbeck: なんでセイバー？
+1i,"Dr. Garcia: Because he’s the only chance we have against this extinction. Without him, we all will be dead in a matter of days.",Dr. Garcia: 彼がいなければ私たちは絶滅してしまうからね。彼がいないと私たちは数日以内に全滅するよ。
+1j,Dr. Steinbeck: Is he actually able to save us?,Dr. Steinbeck: 本当に私たちを救えるんですか？
+1k,"Dr. Garcia: We will see. I am going to send it out to help clear out the robots not too far from here. See how he can handle combat. Good luck, Savior.",Dr. Garcia: 見てみましょう。近くのロボットを排除するのに彼を送り出します。彼がどのように戦闘を処理するか見てみましょう。幸運を祈るよ、セイバー。
+1l,Use the arrow keys to move. Hold X to shoot,
+1m,Dr. Steinbeck: I can’t believe it! It actually works! Savior was able to fight them off!,
+1n,"Dr. Garcia: And you doubted his abilities. With Savior, he will finally bring us peace at last!",
+1o,Dr. Steinbeck: We shouldn’t celebrate yet. This is only just the beginning.,
+1p,"Dr. Garcia: I know. But I have a good feeling about it. Are you heavily damaged, Savior?",
+1q,Savior: Negative.,
+1r,Dr. Garcia: Are you ready to move on?,
+1s,Savior: Affirmative.,
+1t,Dr. Garcia: Great! We’re sending you to the city.,
+2a,"Dr. Garcia: This is going to be harder than last time. There are more enemies here. We have intel that there is a “General” patrolling the area. 
+",
+2b,"Dr. Steinbeck: I have seen a ""General"" take out hundreds of soldiers at once during the start of the war. It was terrifying how much power this thing has. I don't know if we can do this.",
+2c,Dr. Garcia: Hey! Don't lose hope! We have Savior here. Have faith.,
+2d,Dr. Steinbeck: I'll gain some when he beats it.,
+2e,"Dr. Garcia: As Dr. Steinbeck said, we need you to take it out. Are you ready?",
+2f,Savior: Affirmative.,
+2g,"Dr. Steinbeck: Wow! You've managed to destroy a ""General."" Never seen that before. Maybe you are what your name implies. Maybe he's ""The Pearl"" we've been looking for. Maybe we can win this war after all.",
+2h,"Dr. Garcia: Like I have said. Savior is our best bet! Hope is what drives us to fight back. Anyways, let's get you back so we can patch you up and fix any damages you've sustained. Sounds good, Savior?",
+2i,Savior: Affirmative.,
+3a,"Dr. Garcia: Okay Savior, we have sent you to one of the many factories where they are making more robots. This area is heavily guarded. ",
+3a1,"Dr. Garcia: Probably the most you've seen since fighting. This is where you will find a ""Supreme Leader,"" a robot above all the rest and it will be difficult to destroy.",
+3b,"Dr. Steinbeck: A ""Supreme Leader""! I only heard rumors of its existence. Never seen one with my own eyes before. Savior is good, but I don't know if he's that good.",
+3c,Dr. Garcia: Hey! Do you remember what I said before?,
+3d,"Dr. Steinbeck: Have faith, I get that, but…",
+3e,"Dr. Garcia: No buts! Have confidence Savior will win. Or else, nothing matters anymore.",
+3f,Dr. Steinbeck: You're right. Good luck Savior.,
+3g,Dr. Garcia: Go out there and do your thing!,
+3h,Dr. Steinbeck: You did it! You actually did it! You make us so proud! ,
+3i,"Dr. Garcia:  He sure does. Without that factory, I believe this will hinder the robots drastically in this war.",
+3j,Dr. Steinbeck: Do you think we can make more Saviors in the future?,
+3k,"Dr. Garcia: Possibly. The war is not over yet. There's still more to do. More areas are still infested by these robots. Our work is not done. Well, in the meantime, Savior, come back to us. We shall celebrate this victory in the meantime.",
+3l,Savior: Affirmative.,
+Intro1,"In the near-distant future, humanity has created sophisticated robots to help serve and protect them.",
+Intro2,"For efficiency’s sake, all the robots are controlled and linked under one server. ",
+Intro3,Everything was peaceful and both robots and humans were working together side-by-side. ,
+Intro4,"But one update later, the robots’ mission was given a bizarre objective.",
+Intro5,"“To protect humans,” the update said, “we need to rid the root cause of all the problems humans face. …Which is humans themselves.” ",
+Intro6,"With the new update being implemented into all of the robots, they set out to accomplish that goal.",
+Intro7,"And within a few days, half of humanity’s population was wiped out. ",
+Intro8,"In a desperate attempt, two scientists discovered an older robot model decommissioned and hidden in the basement of one of their houses and reactivated it.",
+Intro9,"Since this robot was not connected to the server when the new update was released, it will do its best to save the rest of humanity from the robot uprising.",

@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://b4x66wpxw06iy"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.cs" id="1_yvsoi"]
+[ext_resource type="PackedScene" uid="uid://bdduf245528og" path="res://scenes/projectile_spawner.tscn" id="2_l4pou"]
+[ext_resource type="Texture2D" uid="uid://cx6aav6to7gih" path="res://assets/flyingboss.png" id="3_sk1o1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndotm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjgbj"]
+atlas = ExtResource("3_sk1o1")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fya5i"]
+atlas = ExtResource("3_sk1o1")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aisnw"]
+atlas = ExtResource("3_sk1o1")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdl0i"]
+atlas = ExtResource("3_sk1o1")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqe8y"]
+atlas = ExtResource("3_sk1o1")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c2kwt"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjgbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fya5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aisnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdl0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqe8y")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="FlyingEnemy" type="Area2D"]
+position = Vector2(203.885, 37.64)
+script = ExtResource("1_yvsoi")
+health = 1000.0
+speed = 1.0
+eType = "flying"
+
+[node name="ProjectileSpawner" parent="." instance=ExtResource("2_l4pou")]
+spawnWait = 2.0
+directionSpawn = 100.0
+shotArc = 360.0
+numShots = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.165, 2.165)
+shape = SubResource("CircleShape2D_ndotm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_c2kwt")
+animation = &"walk"

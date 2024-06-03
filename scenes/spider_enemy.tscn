@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmetpgynyp82j"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.cs" id="1_s2jgx"]
+[ext_resource type="PackedScene" uid="uid://bdduf245528og" path="res://scenes/projectile_spawner.tscn" id="2_ffvlh"]
+[ext_resource type="Texture2D" uid="uid://dfb411mih1uh2" path="res://assets/spiderrobot.png" id="3_gbdaf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndotm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5wnd"]
+atlas = ExtResource("3_gbdaf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v17cg"]
+atlas = ExtResource("3_gbdaf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqsm8"]
+atlas = ExtResource("3_gbdaf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c2kwt"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5wnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v17cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqsm8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[node name="SpiderEnemy" type="Area2D"]
+position = Vector2(35.935, 35.405)
+script = ExtResource("1_s2jgx")
+eType = "spider"
+
+[node name="ProjectileSpawner" parent="." instance=ExtResource("2_ffvlh")]
+spawnWait = 1000.0
+directionSpawn = 180.0
+shotArc = 30.0
+numShots = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.165, 2.165)
+shape = SubResource("CircleShape2D_ndotm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_c2kwt")
+animation = &"walk"

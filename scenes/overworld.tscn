@@ -1,0 +1,230 @@
+[gd_scene load_steps=16 format=3 uid="uid://dhi0ontuyv1ih"]
+
+[ext_resource type="Script" path="res://scripts/Overworld.cs" id="1_xkqrl"]
+[ext_resource type="Script" path="res://scripts/PlayerMovement.cs" id="2_4db1n"]
+[ext_resource type="Texture2D" uid="uid://cjx4hf7ynjbfl" path="res://assets/character.png" id="2_ph2hx"]
+[ext_resource type="Texture2D" uid="uid://dklt4b6i0ywnw" path="res://assets/background1.png" id="6_ck63o"]
+[ext_resource type="Texture2D" uid="uid://bjmsim3w0xlxb" path="res://assets/titlescreen.png" id="7_8glud"]
+[ext_resource type="Shader" path="res://scripts/overworld.gdshader" id="8_hhfnx"]
+[ext_resource type="AudioStream" uid="uid://dvgn1cn3q27kv" path="res://assets/titlescreen_1.wav" id="10_3tgre"]
+[ext_resource type="AudioStream" uid="uid://c1uxph808nsfg" path="res://assets/consequences.wav" id="10_is85f"]
+[ext_resource type="Script" path="res://scripts/EnemySpawner.cs" id="13_8wxxa"]
+[ext_resource type="Script" path="res://scripts/Dialogue.cs" id="14_ae63g"]
+[ext_resource type="Texture2D" uid="uid://cj67rvxheloyh" path="res://assets/garcia.png" id="15_fyidl"]
+[ext_resource type="Texture2D" uid="uid://dsqrlqidps0ht" path="res://assets/steinbeck.png" id="16_hlsw5"]
+[ext_resource type="Texture2D" uid="uid://cvscr0e427qlj" path="res://assets/saviorpic.png" id="17_5y8vc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0nkqc"]
+height = 39.57
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rtc8"]
+shader = ExtResource("8_hhfnx")
+
+[node name="Overworld" type="Node2D"]
+script = ExtResource("1_xkqrl")
+
+[node name="Status" type="RichTextLabel" parent="."]
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 188.0
+offset_bottom = 134.0
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(256, 490)
+floor_stop_on_slope = false
+script = ExtResource("2_4db1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture_filter = 1
+position = Vector2(0, 2)
+texture = ExtResource("2_ph2hx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(5.295, 5.645)
+shape = SubResource("CapsuleShape2D_0nkqc")
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(128, 128)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(64, 64)
+scale = Vector2(2, 2)
+texture = ExtResource("6_ck63o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(128, 2.08165e-12)
+texture = ExtResource("6_ck63o")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(128, 128)
+texture = ExtResource("6_ck63o")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(2.08165e-12, 128)
+texture = ExtResource("6_ck63o")
+
+[node name="Gui" type="Node2D" parent="."]
+process_mode = 2
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Gui"]
+z_index = 24
+texture_filter = 1
+position = Vector2(256, 256)
+scale = Vector2(4, 4)
+texture = ExtResource("7_8glud")
+
+[node name="NewGameButton" type="Button" parent="Gui"]
+z_index = 25
+texture_filter = 1
+material = SubResource("ShaderMaterial_4rtc8")
+offset_left = 188.0
+offset_top = 92.0
+offset_right = 323.0
+offset_bottom = 123.0
+text = "Start New Game"
+
+[node name="ContinueButton" type="Button" parent="Gui"]
+z_index = 25
+texture_filter = 1
+material = SubResource("ShaderMaterial_4rtc8")
+offset_left = 188.0
+offset_top = 134.0
+offset_right = 323.0
+offset_bottom = 165.0
+text = "Continue"
+
+[node name="HowToPlayButton" type="Button" parent="Gui"]
+z_index = 25
+texture_filter = 1
+material = SubResource("ShaderMaterial_4rtc8")
+offset_left = 187.0
+offset_top = 179.0
+offset_right = 322.0
+offset_bottom = 210.0
+text = "How to Play"
+
+[node name="QuitButton" type="Button" parent="Gui"]
+z_index = 25
+texture_filter = 1
+material = SubResource("ShaderMaterial_4rtc8")
+offset_left = 188.0
+offset_top = 223.0
+offset_right = 323.0
+offset_bottom = 254.0
+text = "Quit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Gui"]
+z_index = 25
+offset_left = 79.0
+offset_top = 262.0
+offset_right = 398.0
+offset_bottom = 369.0
+text = "Art  and Music -  Shrapnel
+Narrative  -  Prachatorn Joemjumroon
+Localization  -  Mami
+Lead Programmer  -  Milo McCarty"
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="Gui"]
+stream = ExtResource("10_3tgre")
+volume_db = -15.0
+autoplay = true
+
+[node name="LanguagePicker" type="Button" parent="Gui"]
+z_index = 25
+offset_left = 6.0
+offset_top = 473.0
+offset_right = 69.0
+offset_bottom = 504.0
+text = "English"
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_is85f")
+volume_db = -15.0
+autoplay = true
+
+[node name="Dialogue" type="Node2D" parent="."]
+z_index = 20
+script = ExtResource("14_ae63g")
+
+[node name="Textbox" type="RichTextLabel" parent="Dialogue"]
+custom_minimum_size = Vector2(300, 50)
+offset_left = 154.0
+offset_top = 339.0
+offset_right = 454.0
+offset_bottom = 389.0
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="IntroTextbox" type="RichTextLabel" parent="Dialogue"]
+custom_minimum_size = Vector2(300, 50)
+offset_left = 105.0
+offset_top = 135.0
+offset_right = 405.0
+offset_bottom = 185.0
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="GarciaPic" type="Sprite2D" parent="Dialogue"]
+visible = false
+position = Vector2(89, 378)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_fyidl")
+
+[node name="SteinbeckPic" type="Sprite2D" parent="Dialogue"]
+visible = false
+position = Vector2(75, 378)
+scale = Vector2(0.615, 0.615)
+texture = ExtResource("16_hlsw5")
+
+[node name="SaviorPic" type="Sprite2D" parent="Dialogue"]
+visible = false
+texture_filter = 1
+position = Vector2(75, 378)
+scale = Vector2(3.13, 3.13)
+texture = ExtResource("17_5y8vc")
+
+[node name="DialogueCounter" type="Timer" parent="Dialogue"]
+wait_time = 5.0
+autostart = true
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("13_8wxxa")
+
+[node name="WaveTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 7.0
+autostart = true
+
+[node name="SpiderWaveTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 5.0
+autostart = true
+
+[node name="FlyingBossTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 20.0
+autostart = true
+
+[node name="SpiderBossTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 45.0
+autostart = true
+
+[connection signal="pressed" from="Gui/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Gui/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Gui/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="Gui/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="finished" from="Gui/TitleMusic" to="." method="_on_title_music_finished"]
+[connection signal="pressed" from="Gui/LanguagePicker" to="." method="_on_language_picker_pressed"]
+[connection signal="finished" from="MainMusic" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="MainMusic" to="." method="_on_main_music_finished"]
+[connection signal="timeout" from="Dialogue/DialogueCounter" to="Dialogue" method="_on_dialogue_counter_timeout"]
+[connection signal="timeout" from="EnemySpawner/WaveTimer" to="EnemySpawner" method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="EnemySpawner/SpiderWaveTimer" to="EnemySpawner" method="_on_spider_wave_timer_timeout"]
+[connection signal="timeout" from="EnemySpawner/FlyingBossTimer" to="EnemySpawner" method="_on_flying_boss_timer_timeout"]
+[connection signal="timeout" from="EnemySpawner/SpiderBossTimer" to="EnemySpawner" method="_on_spider_boss_timer_timeout"]
